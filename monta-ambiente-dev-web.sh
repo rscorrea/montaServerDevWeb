@@ -57,8 +57,8 @@ sudo ln -s ~/.composer/vendor/laravel/installer/laravel /usr/local/bin/laravel
 cd ~/Downloads
 
 # Baixando o PHPStorm e instalando
-# Será feito o download da versão 8.0.3 - Caso existe uma versão nova, por favor alterar na linha abaixo.
-wget -crnd --progress=bar https://download.jetbrains.com/webide/PhpStorm-8.0.3.tar.gz
+# Será feito o download da versão 9.0 - Caso existe uma versão nova, por favor alterar na linha abaixo.
+wget -crnd --progress=bar http://download.jetbrains.com/webide/PhpStorm-9.0.tar.gz
 sudo tar -xzf PhpStorm-*.tar.gz -C /opt
 
 # Vamos voltar para sua pasta home.

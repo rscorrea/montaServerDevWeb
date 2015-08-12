@@ -45,6 +45,13 @@ COMMENT
 # Instalando bibliotecas necessárias
 sudo apt-get -qy install php5-curl php5-imagick php5-intl php5-memcache php-pear php5-dev php5-xdebug mcrypt
 
+# Habilitando o mod_rewrite Apache2
+sudo a2enmod rewrite
+
+# Habilitando o Mcrypt para Apache2 e PHP5
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/20-mcrypt.ini
+
 # Instalando o Composer
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
@@ -99,7 +106,7 @@ sudo usermod -G $USUARIO www-data
 sed -e "s/127.0.0.1\tlocalhost/127.0.0.1\tlocalhost projetos/" /etc/hosts | sudo tee /etc/hosts &> /dev/null
 
 # Reinicia o serviço do Apache2
-sudo service apache2 reload
+sudo service apache2 restart
 
 # Recomendo fortemente a utilização do SmartGit como GUI para o Git. Torna o processo mais simples e intuitivo.
 # Para instalar, siga os passos abaixo.
@@ -109,5 +116,9 @@ sudo dpkg -i smartgit-*.deb
 
 # Esta ultima linha inicia o PHPStorm pela primeira vez.
 # Atenção nesta execução pois ele irá criar as pastas necessárias e o icone de lançador.
-/opt/PhpStorm*/bin/phpstorm.sh
+#   /opt/PhpStorm*/bin/phpstorm.sh
+
+# Este ultimo comando eh muito importante para dar um refresh nas permiss~oes de usuario.
+# Ele ir´a pedir sua senha de usuario
+su -l $USUARIO && exit
 

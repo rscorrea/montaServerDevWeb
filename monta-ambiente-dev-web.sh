@@ -60,14 +60,6 @@ sudo mv composer.phar /usr/local/bin/composer
 composer global require 'laravel/installer=~1.1'
 sudo ln -s ~/.composer/vendor/laravel/installer/laravel /usr/local/bin/laravel
 
-# Mudando para o diretório de Downloads
-cd ~/Downloads
-
-# Baixando o PHPStorm e instalando
-# Será feito o download da versão 9.0 - Caso existe uma versão nova, por favor alterar na linha abaixo.
-wget -crnd --progress=bar http://download.jetbrains.com/webide/PhpStorm-9.0.tar.gz
-sudo tar -xzf PhpStorm-*.tar.gz -C /opt
-
 # Vamos voltar para sua pasta home.
 cd
 
@@ -108,17 +100,22 @@ sed -e "s/127.0.0.1\tlocalhost/127.0.0.1\tlocalhost projetos/" /etc/hosts | sudo
 # Reinicia o serviço do Apache2
 sudo service apache2 restart
 
+# Baixando o PHPStorm e instalando
+# Será feito o download da versão 9.0 - Caso existe uma versão nova, por favor alterar na linha abaixo.
+cd ~/Downloads
+wget -crnd --progress=bar http://download.jetbrains.com/webide/PhpStorm-9.0.tar.gz
+sudo tar -xzf PhpStorm-*.tar.gz -C /opt
+
 # Recomendo fortemente a utilização do SmartGit como GUI para o Git. Torna o processo mais simples e intuitivo.
 # Para instalar, siga os passos abaixo.
-cd ~/Downloads
 wget -crnd --progress=bar http://www.syntevo.com/downloads/smartgit/smartgit-6_5_8.deb
 sudo dpkg -i smartgit-*.deb
-
-# Esta ultima linha inicia o PHPStorm pela primeira vez.
-# Atenção nesta execução pois ele irá criar as pastas necessárias e o icone de lançador.
-#   /opt/PhpStorm*/bin/phpstorm.sh
 
 # Este ultimo comando eh muito importante para dar um refresh nas permiss~oes de usuario.
 # Ele ir´a pedir sua senha de usuario
 su -l $USUARIO && exit
+
+# Esta ultima linha inicia o PHPStorm pela primeira vez.
+# Atenção nesta execução pois ele irá criar as pastas necessárias e o icone de lançador.
+#   /opt/PhpStorm*/bin/phpstorm.sh
 

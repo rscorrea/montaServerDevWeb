@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Testar a internet e verificar se está liberada. Não pode haver bloqueio de conteúdo. Caso haja, alterar o IP.
+
+# Fazer o download do Java e do Skype e salvar na pasta ~/Downloads
+
+locale-gen pt_BR pt_BR.UTF-8
+dpkg-reconfigure locales
+
 # Altera o diretorio para a pasta Downloads
 cd ~/Downloads
 
@@ -7,7 +14,7 @@ apt-get update
 apt-get upgrade
 
 # Instala no Ubuntu
-apt-get install curl ttf-mscorefonts-installer fonts-freefont-ttf ttf-xfree86-nonfree unrar zip p7zip-full
+apt-get install curl ttf-mscorefonts-installer fonts-freefont-ttf ttf-xfree86-nonfree unrar zip p7zip-full pdfsam
 
 # Instalação Java Oracle
 tar -xzf jre-*-linux-i586.tar.gz -C /opt
@@ -18,11 +25,3 @@ update-alternatives --set mozilla-javaplugin.so /opt/jre_atual/lib/i386/libnpjp2
 
 # http://www.skype.com/go/getskype-linux-beta-ubuntu-64
 dpkg -i skype-ubuntu-precise*_i386.deb
-
-# http://get.code-industry.net/public/master-pdf-editor-3.4.12_i386.deb
-dpkg -i master-pdf-editor-*_i386.deb
-
-# mkdir ~/.fonts
-# cp *.ttf ~/.fonts
-# cd ~/.fonts
-# fc-cache
